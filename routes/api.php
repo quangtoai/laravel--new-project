@@ -32,16 +32,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
         Route::apiResource('userproxy', 'UserProxyController');
         Route::apiResource('role', 'RoleController');
         Route::apiResource('setting', 'SettingController');
-        
-        Route::group(['prefix' => 'payslip'], function () {
-            // Route::get('me','PayslipController@me');
-            Route::get('detail','PayslipController@show');
-            Route::post('import', 'PayslipController@store');
-            Route::get('month', 'PayslipController@month');
-        });
-        Route::apiResource('payslip','PayslipController');
     });
-    Route::get('userproxy','UserProxyController@index');
     Route::apiResource('roles', "RoleController")->middleware(['auth:user']);
     Route::get('permissions', 'RoleController@listPermission')->middleware(['auth:user']);
     Route::post('remind-passwords', 'AuthController@remindPassword');

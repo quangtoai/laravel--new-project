@@ -15,9 +15,6 @@ use App\Repositories\UserRepository;
 use Illuminate\Support\ServiceProvider;
 use Repository\BaseRepository;
 use Repository\AuthRepository;
-
-use Repository\PayslipRepository;
-use Repository\UserProxyRepository;
 use Repository\RoleRepository;
 use Laravel\Dusk\DuskServiceProvider;
 use Repository\SettingRepository;
@@ -35,8 +32,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(AuthRepositoryInterface::class, AuthRepository::class);
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(RoleRepositoryInterface::class, RoleRepository::class);
-        $this->app->bind(UserProxyRepositoryInterface::class, UserProxyRepository::class);
-        $this->app->bind(PayslipRepositoryInterface::class, PayslipRepository::class);
         $this->app->bind(SettingRepositoryInterface::class, SettingRepository::class);
         //Customer
         if ($this->app->environment('local', 'testing')) {
