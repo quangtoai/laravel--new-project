@@ -1,0 +1,149 @@
+<?php
+
+namespace Tests\Unit\Http\Controller;
+
+use App\Http\Controllers\Api\payslipController;
+use App\Http\Requests\payslipRequest;
+use App\Models\Payslip;
+use App\Repositories\Contracts\payslipRepositoryInterface;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Config;
+use Tests\TestCase;
+use Repository\payslipRepository;
+use Mockery as m;
+use Illuminate\Foundation\Application;
+use Illuminate\Http\Request;
+
+class PayslipImportTest extends TestCase
+{
+    use RefreshDatabase;
+    private $payslipRepository;
+    private $payslipController;
+    private $request;
+    protected function setUp(): void
+    {
+        $this->request = new Request();
+        $this->payslip = m::mock(Payslip::class)->makePartial();
+        $app = new Application();
+        $this->afterApplicationCreated(function ()use($app){
+            $this->payslipRepository = m::mock(new payslipRepository($app))->makePartial();
+            $this->payslipController = new payslipController(
+                $this->app->instance(payslipRepositoryInterface::class, $this->payslipRepository),
+            );
+        });
+        parent::setUp();
+    }
+
+    public function fake_data(){
+        $mapRequest = new payslipRequest();
+        $form_definition = new UploadedFile(
+            'tests\csv\palyslip_sample.csv',
+            'csv',
+            null,
+            true);
+        
+        $file_test =  [
+            'payslip' => $form_definition,
+            'created_by' => 1,
+            'status' => 0
+        ];
+        $mapRequest->merge($file_test);
+        $response= $this->payslipController->store($mapRequest);
+        return json_decode($response->content());
+    }
+
+    public function getRequestImport($payslipFile): payslipRequest
+    {
+        $mapRequest = new payslipRequest();
+        $form_definition = new UploadedFile(
+            'tests\csv\palyslip_sample.csv',
+            'csv',
+            null,
+            true);
+        $file_test =  [
+            'payslip' => $form_definition,
+            'created_by' => 1,
+            'status' => 0
+        ];
+        $mapRequest->merge($file_test);
+        return $mapRequest;
+    }
+
+    protected function tearDown(): void
+    {
+        m::close();
+        parent::tearDown();
+    }
+
+    /**
+     * get all data before not import file
+     * @return void
+     */
+    public function test_get_data_before_import(){
+        $result = $this->payslipController->index();
+        $this->assertEquals(502, json_decode($result->content())->code);
+    }
+
+    /**
+     * Get all data after import file but not done
+     * @return void
+     */
+    public function test_get_data_after_import_but_not_done(){
+        Config::set('queue.default', 'database');
+        $this->fake_data();
+        $result = $this->payslipController->index();
+        $this->assertEquals(501, json_decode($result->content())->code);
+    }
+
+    /**
+     * Get all data before import file success
+     * @return void
+     */
+    public function test_get_data_before_import_success(){
+         $this->fake_data();
+        $result = $this->payslipController->index();
+        $this->assertEquals(200, json_decode($result->content())->code);
+    }
+
+    /**
+     * Import file but not input file
+     */
+    public function test_import_but_not_input_file(){
+        $request = $this->getRequestImport(null);
+        $result = $this->payslipController->store($request);
+        $this->assertEquals(422, json_decode($result->content())->code);
+        $this->assertEquals(trans('validation.required', ['attribute' => 'payslip']), json_decode($result->content())->message);
+    }
+
+    /**
+     * Import file but wrong type extension
+     */
+    public function test_import_but_wrong_extension(){
+        $request = $this->getRequestImport('tests\stubs\text.txt');
+        $result = $this->payslipController->store($request);
+        $this->assertEquals(422, json_decode($result->content())->code);
+        $this->assertEquals(trans('validation.mimes', ['attribute' => 'payslip', 'values' => 'xlsx']), json_decode($result->content())->message);
+    }
+
+    /**
+     * Import file but wrong content
+     */
+    public function test_import_but_wrong_content(){
+        $request = $this->getRequestImport('tests\csv\wrong_file.csv');
+        $result = $this->payslipController->store($request);
+        $this->assertEquals(422, json_decode($result->content())->code);
+        $this->assertEquals(trans('errors.content_file_not_correct', ['filename' => 'wrong_file']), json_decode($result->content())->message);
+    }
+
+    /**
+     * Import file success
+     */
+    public function test_import_success(){
+        $request = $this->getRequestImport('tests\csv\palyslip_sample.csv');
+        $result = $this->payslipController->store($request);
+        $this->assertEquals(200, json_decode($result->content())->code);
+    }
+}
+

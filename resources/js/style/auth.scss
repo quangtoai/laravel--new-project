@@ -1,0 +1,36 @@
+.form_auth {
+    margin: 50px auto;
+    margin-bottom: 20px;
+    max-width: 768px;
+    font-weight: bolder;
+}
+
+.link_forgot_password {
+    color: #55AEEE;
+    text-align: right;
+    display: block;
+    margin-top: 20px;
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+     }
+}
+
+.page_notify{
+    color: black !important;
+    text-align: center;
+    margin-top: 10%;
+    font-weight: bold;
+}
+.view_pass{
+    padding: 35px 0; 
+    font-size: 50px;
+}
+// @media only screen and (max-width: 600px) {
+//     main {
+//         padding: 0 30px;
+//     }
+//     .link_forgot_password {
+//         text-align: center;
+//     }
+// }

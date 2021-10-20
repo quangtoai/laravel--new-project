@@ -1,0 +1,104 @@
+.transparent{
+    opacity: 0;
+}
+.labelcheck {
+    cursor: pointer;
+    .custom-checkbox{
+        display: inline-block;
+    }
+}
+.input_line{
+    margin: 10px 0;
+    .custom-control, input{
+        display: inline-block;
+    }
+}
+.input_short{
+    max-width: 200px;
+}
+.input_medium{
+    max-width: 400px;
+}
+.select_month {
+    max-width: 200px;
+    min-width: 120px;
+    height: 50px;
+    font-size: inherit;
+}
+.loading{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background:#ffffffba;
+    i{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 4rem;
+        height: 4rem;
+    }
+}
+.form_action{
+    padding: 10px;
+}
+.errors{
+    p{
+        color: red;
+        margin-left: 50px;
+        margin-bottom: 0px;
+    }
+}
+.api_report{
+    border: 1px solid #cccccc8a;
+    padding: 10px;
+    position: relative;
+    strong{
+        padding: 0 6px;
+    }
+    .close{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+}
+.success{
+    background: #077d05 ;
+    color: white;
+}
+.danger{
+    background: red ;
+    color: white;
+}
+.hide{ display: none !important;}
+.pull_left{
+    float: left;
+}
+.pull_right{ float: right;}
+.clearfix{
+    &::after{
+        clear: both;
+        content: "";
+        display: block;
+    }
+}
+.font_normal{
+    font-size: $font_normal;
+}
+.bg_gray{
+    background: #e5e5e5;
+}
+#dusktext{
+    position: fixed;
+    top: 100px;
+    right: 50px;
+    min-width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    max-width: 300px;
+    opacity: 0.7;
+}

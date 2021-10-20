@@ -1,0 +1,59 @@
+<?php
+
+namespace Tests\Unit\Http\Controllers;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Facade;
+use Tests\TestCase;
+use Tests\Unit\Session;
+use Faker\Factory as Faker;
+
+class PayslipDetailTests extends TestCase
+{
+    use RefreshDatabase;
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->faker = Faker::create();
+
+        $this->obj = [
+            'id' => 1,
+            'full_name' => 'michael jackson',
+            'emp_code' => 14,
+            'month' => '2021-08-01',
+            'department' => 'Tokyo',
+        ];
+
+        $this->param = [
+            '_token' => csrf_token()
+        ];
+    }
+
+    public function tearDown(): void
+    {
+        parent::tearDown();
+    }
+
+    /**
+     * A basic unit test example 1.
+     *
+     * @return void
+     */
+    /** @test */
+    public function testDataShow()
+    {
+        $response = $this->call('GET', 'api/payslip/?emp_code=14&month=2021-08', ['_token' => csrf_token()]);
+        $this->assertEquals("michael jackson", $response->decodeResponseJson()['data']['full_name']);
+    }
+    public function testChangeMonth()
+    {
+        $response = $this->call('GET', 'api/payslip/?emp_code=14&month=2021-09', ['_token' => csrf_token()]);
+        $this->assertEquals("2021-09", $response->decodeResponseJson()['data']['month']);
+    }
+    public function testChangeEmployee()
+    {
+        $response = $this->call('GET', 'api/payslip/?emp_code=12&month=2021-08', ['_token' => csrf_token()]);
+        $this->assertEquals("12", $response->decodeResponseJson()['data']['emp_code']);
+    }
+}

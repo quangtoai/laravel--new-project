@@ -1,0 +1,24 @@
+.pagianation {
+    .page-link {
+        color: $root-black;
+    }
+
+    .page-item.disable {
+        color: $root-black;
+    }
+
+    .page-item.active .page-link {
+        color: $root-red;
+        background: $root-black;
+        border-color: $root-black;
+        font-weight: 600;
+    }
+
+    .page-link:hover {
+        z-index: 2;
+        color:  $root-black;
+        text-decoration: none;
+        background-color: $root-red;
+        border-color: $root-red;
+    }
+}

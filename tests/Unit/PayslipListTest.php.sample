@@ -1,0 +1,63 @@
+<?php
+
+namespace Tests\Unit\Http\Controllers;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Facade;
+use Tests\TestCase;
+use Tests\Unit\Session;
+use Faker\Factory as Faker;
+
+class PayslipListTests extends TestCase
+{
+    use RefreshDatabase;
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->faker = Faker::create();
+
+        $this->users = [
+            'full_name' => 'michael jackson',
+            'emp_code' => 14,
+            'month' => '2021-08-01',
+            'department' => 'Tokyo',
+        ];
+
+        $this->param = [
+            'page' => '1',
+            'per_page' => '10',
+            'emp_code' => '14',
+            'full_name' => 'michael',
+            'month' => '2021-08-01',
+            '_token' => csrf_token()
+        ];
+    }
+
+    public function tearDown(): void
+    {
+        parent::tearDown();
+    }
+
+    /**
+     * A basic unit test example 1.
+     *
+     * @return void
+     */
+    /** @test */
+    public function testListShow()
+    {
+        $response = $this->call('GET', 'api/payslip/', ['_token' => csrf_token()]);
+        $this->assertEquals(200, $response->decodeResponseJson()['code']);
+    }
+    public function testFilter()
+    {
+        $response = $this->call('GET', 'api/payslip/', $this->param);
+        $this->assertEquals("michael jackson", $response->decodeResponseJson()['data']['result'][0]['full_name']);
+    }
+    public function testPagination()
+    {
+        $response = $this->call('GET', 'api/payslip/', $this->param);
+        $this->assertEquals("michael jackson", $response->decodeResponseJson()['data']['result'][0]['full_name']);
+    }
+}

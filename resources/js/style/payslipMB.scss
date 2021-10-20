@@ -1,0 +1,124 @@
+.header-table {
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    word-wrap: break-word;
+    background-color: #e8e9e8;
+    line-height: 40px;
+    display: flex;
+    border: 1px solid #D0D1D0;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #B9BAB9;
+    }
+
+    .header-note {
+        width: 5%;
+        height: 40px;
+        overflow: hidden;
+        background-color: #308bc3;
+    }
+
+    .header-title {
+        width: 70%;
+        height: 40px;
+        text-indent: 10px;
+    }
+
+    .icon-toggle {
+        width: 20%;
+        height: 40px;
+
+        span {
+            i {
+                font-size: 20px;
+                font-weight: 700;
+                color: #308bc3;
+            }
+        }
+    }
+
+    &:nth-child(even) {
+        border-top-width: 0;
+    }
+}
+
+
+.collapsed > .header-table > .icon-toggle > .when-opened,
+:not(.collapsed) > .header-table > .icon-toggle > .when-closed {
+    display: none;
+}
+
+#GeneralPDF {
+    .mt-2 {
+        margin-top: 0 !important;
+    }
+}
+
+#collapse-empinfo,
+#collapse-servicerecord,
+#collapse-payment,
+#collapse-deduction,
+#collapse-excesstaxoriginal,
+#collapse-paymentamount {
+    .card {
+        border-radius: 0;
+        border-top-width: 0;
+    }
+
+    .card-body {
+        padding: 0;
+    }
+}
+
+.zone-display-table {
+    min-height: 40px;
+    background-color: #fff;
+
+    .zone-display-row {
+        border: 1px solid #D0D1D0;
+
+        .zone-title {
+            background-color: #ecf7fd;
+            overflow-wrap: break-word;
+            min-height: 40px;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            padding-left: calc(5% + 20px);
+            font-size: 14px;
+            font-weight: bold;
+
+            .btn_helper {
+                border-radius: 50%;
+                border: 2px solid #000000;
+                color: #000000;
+                width: 20px;
+                height: 20px;
+                font-size: 10px;
+                cursor: pointer;
+                text-align: center;
+                text-indent: 0px;
+                margin-left: 5px;
+            }
+        }
+
+        .zone-value {
+            overflow-wrap: break-word;
+            min-height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            float: right;
+            margin-right: 27px;
+            font-size: 14px;
+        }
+    }
+}
+
+@media all and (max-width: 767px) {
+    main.payslip_detail {
+        padding: 0;
+    }
+}

@@ -1,0 +1,281 @@
+{
+    "title": "Izumi Dx Team",
+    "routes": {
+        "payslip": "給与明細書",
+        "salary-details": "給与明細",
+        "employee": "社員データ",
+        "employee-edit": "従業員データの編集",
+        "csv-import": "CSVインポート",
+        "crew_system": "CREWシステム",
+        "manager_system": "労務システム"
+    },
+    "navbar": {
+        "logout": "ログアウト",
+        "languages": {
+            "en": "英語",
+            "ja": "日本語"
+        }
+    },
+    "notify": {
+        "title": "成功",
+        "content": "言語を正常に変更します。",
+        "data_notfound": "何もデータが見つかりませんでした",
+        "cannot_access": "この機能にアクセスできません",
+        "emp_code_max_length": "従業員コードの最大長は6です。",
+        "emp_code_required": "従業員番号が必要です。",
+        "password_required": "パスワードが必要です。",
+        "password_min_length": "パスワードは8文字以上でなければなりません。",
+        "confirm_password_required": "新しいパスワードが必要であることを確認します。",
+        "confirm_password_notmatch": "パスワードが一致しないことを確認する",
+        "current_password_wrong": "このパスワードは間違っています。",
+        "retirement_required": "退職を入力してください",
+        "email_required": "メールアドレスが必要です。",
+        "email_wrong_format": "メールアドレスの形式が正しくありません。",
+        "email_proxy_required": "プロキシメールを選択してください"
+    },
+    "warning": "警告",
+    "danger": "警告",
+    "success": "成功",
+    "server": {
+        "csv_file_invalid": "ファイルのインポートが無効ですd",
+        "emp_code_not_exist":"存在しない社員番号です。",
+        "temp_pass_not_match":"仮パスワードが一致しません。",
+        "temp_pass_not_active":"仮パスワードが有効ではありません。",
+        "temp_pass_incorrect":"仮パスワードが正しくありません。",
+        "server_error":"サーバーに接続できません。管理者に問い合わせください。",
+        "payslip_existed":"指定された給与明細は既に存在します。",
+        "confirm_pass_not_match": "パスワードが一致しません。",
+        "current_pass_incorrect":"パスワードが正しくありません。",
+        "token_not_provided": "ログインを行なってください。",
+        "session_expire":"セッションの有効期限が切れています。再度ログインを行なってください。",
+        "email_invalid":"メールアドレスのフォーマットが正しくありません。",
+        "current_pass_confirm_pass_not_null":"パスワードを入力してください。",
+        "account_deactivated":"アカウントが非アクティブになりました",
+        "emp_code_or_password_incorrect": "従業員コードまたはパスワードが正しくありません"
+    },
+    "views": {
+        "login": {
+            "current_language": "日本語",
+            "username_label": "社員番号",
+            "password_label": "パスワード",
+            "personal_information_registration": "仮パスワードログイン",
+            "employee-number": "社員番号",
+            "password": "パスワード",
+            "btn-login": "ログイン",
+            "btn-recovery": "パスワード再発行",
+            "btn-forget-password": "パスワードを忘れた場合はこちら",
+            "warning": "警告",
+            "success": "成功",
+            "forgot-password": "パスワードを忘れた場合はこちら。",
+            "temp-password": "パスワード",
+            "btn-registration": "登録",
+            "login-success": "ログインに成功しました。",
+            "login-fail": "従業員番号またはパスワードが正しくありません。",
+            "danger": "エラー",
+            "undefined-error": "未定義のエラー。",
+            "email": "メールアドレス",
+            "email-placeholder": "例) 〇〇〇〇@〇〇〇〇",
+            "email-description": "メールアドレスがない方はこちらにチェック",
+            "proxy-contact": "代理連絡先",
+            "password-description": "※半角英数8文字以上"
+        },
+        "logout": {
+            "title": "ログアウト",
+            "content": "「ログアウトしました"
+        },
+        "recovery": {
+            "warning": "警告",
+            "danger": "エラー",
+            "success": "成功"
+        },
+        "notification": {
+            "password-reissue-notification-registered": "パスワード再発行通知を登録された",
+            "sent-to-email-address": " メールアドレスに送信しました。",
+            "second-notify": "入力いただいた社員番号が不一致の場合、",
+            "third-notify": "セキュリティ上、エラーは表示せずにメールが届かない仕様になっております。",
+            "fourth-notify": "メールが届いていない場合は正しい社員番号を入力して、再びパスワード再発行をお願い致します。",
+            "btn-recovery": "パスワード再発行",
+            "personal_info_seting_completed":"個人情報設定完了しました"
+        },
+        "payslip": {
+            "description": {
+                "working-days": "対象月の出勤日数（法定休日出勤日数を除く)",
+                "working-out-of-days": "法定休日出勤日数",
+                "special-leave-days": "特別休暇日数",
+                "paid-off-days": "有給休暇使用日数",
+                "off-days": "欠勤日数（所定労働日数内で休日）",
+                "remaining-paid-off-days": "有給休暇の残日数",
+                "working-time": "対象月の所定労働時間内の勤務時間数",
+                "late-early": "対象月の遅刻・早退時間数",
+                "common-ot": "所定労働日における残業時間数＋公休出勤時間数",
+                "hard-work-time-2": "法定休日出勤日における時間数",
+                "midnight-cp-time": "対象月の深夜勤務時間数",
+                "basic-salary": "基本給",
+                "ot-salary-cp": "対象月の残業時間に対する手当金額",
+                "hard-work-2-cp": "（基本給＋職能給）÷（8ｈ×260日÷12か月）×1.35×休出時間",
+                "midnight-cp": "深夜時間数に対する深夜勤務手当金額",
+                "other-payment-paid-off": "対象月の所定労働時間に満たない時間で減額される金額",
+                "ot-adjustment-cp": "有給休暇取得による対象金額",
+                "transportation-cp": "みなし給与総額と実時間総額の差額調整金額",
+                "health-insurance-premium": "定められた社会保険料金の個人負担分",
+                "nursing-care-insurance-premium": "定められた介護保険料金の個人負担分",
+                "welfare-pension-insurance-premium": "定められた厚生年金保険料金の個人負担分",
+                "unemployment-insurance-premium": "定められた雇用保険料金の個人負担分",
+                "total-insurance-amount": "健康保険料＋介護保険料＋厚生年金保険＋雇用保険料",
+                "personal-income-tax": "国に定められた所得税対象の所得に対する税金額",
+                "inhabitant-tax": "昨年の収入に対する国税と都道府県税の合計金額",
+                "apartment-fee": "当月分の寮費",
+                "other-2": "食費",
+                "advance-paid": "制服代や会社で立替えている社会保険料等",
+                "withholding": "会社で預かっている金額（免許支援制度徴収分や差押分等）",
+                "total-deduction-amount": "㉗～㉟の合計金額（会社として個人分を控除し代わりに収める金額）",
+                "net-payment": "㉖総支給金額－㊱控除合計額の支給額（手取り金額とも言う）"
+            }
+        },
+        "salary-details": {
+            "employee-table": {
+                "title": "所属氏名",
+                "department": "所属",
+                "employee-number": "社員番号",
+                "full-name": "氏名   （様）·"
+            },
+            "service-record-table": {
+                "title": "勤怠他",
+                "working-days": "出勤日数",
+                "working-out-of-days": "休出日数",
+                "special-leave-days": "特休日数",
+                "paid-off-days": "有休日数",
+                "off-days": "欠勤日数",
+                "remaining-paid-off-days": "有休残",
+                "working-time": "出勤時間",
+                "late-early": "遅早時間",
+                "common-ot": "普通残業時間",
+                "hard-work-time-2": "休出時間",
+                "midnight-cp-time": "深夜手当時間",
+                "paid-scheduled-hours": "有給所定時間",
+                "paid-midnight-hours": "有給深夜時間"
+            },
+            "payment-table": {
+                "title": "支給",
+                "basic-salary": "基本給",
+                "salary-for-performance": "職能給",
+                "position-cp": "役職手当",
+                "heavy-truck-cp": "大型手当",
+                "bd-cp": "同乗手当",
+                "other-cp": "その他手当",
+                "ot-salary-cp": "時間外労働手当",
+                "hard-work-2-cp": "休日出勤手当",
+                "midnight-cp-time": "深夜手当",
+                "paid-off-adjustment": "有給欠勤調整分",
+                "ot-cp-adjustment": "超過勤務手当調整額",
+                "last-month-adjustment": "前月調整",
+                "adjusted-salary": "調整給",
+                "bounty": "報奨金",
+                "attendance-deduction": "勤怠控除",
+                "other-payment-paid-off": "その他支給（有給)",
+                "ot-adjustment-cp": "時間外調整手当",
+                "reduced-amount": "減額金",
+                "taxable-amount": "課税支給額",
+                "transportation-cp": "通勤手当",
+                "total-amount-of-payment": "総支給金額",
+                "gross-payment": "総支給金額"
+            },
+            "deduction-table": {
+                "title": "控除",
+                "health-insurance-premium": "健康保険料",
+                "nursing-care-insurance-premium": "介護保険料",
+                "welfare-pension-insurance-premium": "厚生年金保険",
+                "unemployment-insurance-premium": "雇用保険料",
+                "total-insurance-amount": "社保合計額",
+                "pit": "所得税",
+                "inhabitant-tax": "住民税",
+                "inhabitant-tax-deduction": "住民税（控除）",
+                "apartment-fee": "寮費",
+                "other-1": "その他１",
+                "other-2": "その他２",
+                "other-3": "その他３",
+                "incurred-transfer-previous-month": "前月別途振込",
+                "advance-paid": "立替金",
+                "withholding": "預かり金",
+                "adjustment-deduction": "調整（控除)",
+                "year-end-adjustment": "年末調整",
+                "total-deduction-amount": "控除合計額"
+            },
+            "excess-tax-table": {
+                "title": "過不足税金",
+                "payable-overpaid-tax": "過不足税額"
+            },
+            "payment-amount-table": {
+                "title": "支給額",
+                "net-payment": "差引支給額",
+                "cash-salary": "現金支給額",
+                "transfer-amount-１": "銀行１振込額",
+                "transfer-amount-2": "銀行２振込額",
+                "carry-over-amount-to-the-following-month": "翌月繰越額",
+                "carried-over-amount-from-previous-month": "前月繰越額"
+            }
+        },
+        "employee": {
+            "user-authority": "ユーザ権限",
+            "retirement": "退職",
+            "input-retirement": "退職日を入力",
+            "filter": "フィルタ",
+            "apply": "適用する",
+            "clear": "全クリア",
+            "employee-code": "社員番号",
+            "employee-name": "社員名",
+            "first-name": "ファーストネーム",
+            "last-name": "苗字",
+            "mail-address": "メールアドレス",
+            "payslip": "給与明細",
+            "current-password": "現在のパスワード",
+            "password": "パスワード",
+            "new-password": "新規パスワード",
+            "confirm-new-password": "新規パスワード(再)",
+            "change": "編集",
+            "display": "表示",
+            "back": "戻る",
+            "save": "保存",
+            "warning": "警告",
+            "danger": "エラー",
+            "success": "成功",
+           
+            "password-length-limit": "パスワードは8文字以上である必要があります。",
+            "required-current-password": "現在のパスワードが必要です。",
+            "required-new-password": "新しいパスワードが必要です。",
+         
+            "save-employee-info-successfully": "従業員データを正常に保存します。",
+            "required-filter": "フィルタリングするには、従業員番号または名前が必要です。",
+            "to-payslip-screen": "給与明細画面へ",
+            "goto-login": "ログインページへ"
+        },
+        "import-csv": {
+            "import": "インポート",
+            "csv-data": "CSVデータ",
+            "import-data": "インポートデータ（CSV)",
+            "select-files": "ファイルを選択",
+            "choose-month": "月を選択",
+            "please-select": "-- 選んでください --",
+            "file-name": "ファイル名",
+            "total-success":"合計 成功",
+            "total-fail":"合計 不合格",
+            "errors":"エラー",
+            "toast": {
+                "success": {
+                    "title": "成功",
+                    "content": "CSVファイルのインポートに成功"
+                },
+                "warning": {
+                    "title": "警告",
+                    "validate-size": "間違ったファイルタイプを選択したか、ファイルが5MBを超えています",
+                    "validate-file-exit": "ファイルをまだインポートしていません",
+                    "validate-choose-month": "月を選択してください"
+                },
+                "danger": {
+                    "title": "エラー",
+                    "content": "エラーが発生しました"
+                }
+            }
+        }
+    }
+}
